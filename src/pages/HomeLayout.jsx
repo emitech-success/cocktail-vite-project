@@ -1,16 +1,18 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../components/Navbar"
+import { Outlet, useNavigation } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const HomeLayout = () => {
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
   return (
     <>
-     <Navbar />
-     <section className="page">
-     <Outlet />
-     </section>
-      
+      <Navbar />
+      <section className="page">
+        {isPageLoading ? <div className="loading" /> : <Outlet />}
+      </section>
+
       <footer>check for footer here</footer>
     </>
-  )
-}
-export default HomeLayout
+  );
+};
+export default HomeLayout;
