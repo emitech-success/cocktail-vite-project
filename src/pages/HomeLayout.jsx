@@ -10,8 +10,6 @@ const HomeLayout = () => {
       <section className="page">
         {isPageLoading ? <div className="loading" /> : <Outlet />}
       </section>
-
-      <footer>check for footer here</footer>
     </>
   );
 };
